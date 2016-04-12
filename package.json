@@ -1,6 +1,6 @@
 {
   "name": "json-safari",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Web interface for viewing JSON files.",
   "main": "index.js",
   "scripts": {
