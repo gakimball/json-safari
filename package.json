@@ -18,5 +18,9 @@
   "bugs": {
     "url": "https://github.com/gakimball/json-safari/issues"
   },
-  "homepage": "https://github.com/gakimball/json-safari#readme"
+  "homepage": "https://github.com/gakimball/json-safari#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5"
+  }
 }
