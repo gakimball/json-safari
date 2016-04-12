@@ -1,0 +1,22 @@
+{
+  "name": "json-safari",
+  "version": "1.0.0",
+  "description": "Web interface for viewing JSON files.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gakimball/json-safari.git"
+  },
+  "keywords": [
+    "json"
+  ],
+  "author": "Geoff Kimball <geoff@geoffkimball.com> (http://geoffkimball.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gakimball/json-safari/issues"
+  },
+  "homepage": "https://github.com/gakimball/json-safari#readme"
+}
