@@ -36,18 +36,7 @@ const HTML = `
  * @returns {string} HTML page displaying the JSON.
  */
 module.exports = module.exports.parse = function parse(value) {
-  let output = '';
-
-  for (let i in value) {
-    output += processItem(i, value[i]);
-  }
-
-  return format(HTML, `
-    <div class="group">
-      <strong>root</strong>
-      ${output}
-    </div>
-  `);
+  return format(HTML, processItem('root', value));
 }
 
 /**
