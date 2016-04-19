@@ -68,7 +68,7 @@ function processItem(key, value) {
 
   return `
     <div class="value">
-      <strong>${key}</strong>
+      <div class="key">${key}</div>
       ${newValue}
     </div>
   `;

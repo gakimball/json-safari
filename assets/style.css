@@ -1,13 +1,24 @@
+html {
+  font-family: 'Helvetica', sans-serif;
+}
+
 .group,
 .value {
   padding: 0.5rem;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .group {
-  border: 1px solid red;
+  margin-top: 0.5rem;
 }
 
-.value {
-  border: 1px solid blue;
+.value:not(:last-child) {
   margin-bottom: 0.5rem;
+}
+
+.key {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  display: inline;
 }
