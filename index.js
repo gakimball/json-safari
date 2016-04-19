@@ -30,18 +30,16 @@ const HTML = `
 </html>
 `;
 
-module.exports = module.exports.parse = parse;
-
 /**
  * Generates an HTML page from a JSON object.
  * @param {object} value - Input JSON.
  * @returns {string} HTML page displaying the JSON.
  */
-function parse(value) {
+module.exports = module.exports.parse = function parse(value) {
   let output = '';
 
   for (let i in value) {
-    output += process(i, value[i]);
+    output += processItem(i, value[i]);
   }
 
   return format(HTML, `
@@ -57,13 +55,19 @@ function parse(value) {
  * @param {object} json - Input JSON.
  */
 module.exports.open = function open(json) {
-  let output = parse(json);
+  let output = module.exports(json);
   return temp(output).then(path => {
     opn(path);
   });
 }
 
-function process(key, value) {
+/**
+ * Print the HTML for a key/value pair. If the value is an array or object, this function is called recursively.
+ * @param {string|number} key - Object or array key.
+ * @param {*} value - Object or array value.
+ * @returns {string} Parsed key/value pair as HTML.
+ */
+function processItem(key, value) {
   let newValue = '';
 
   // Recursively process arrays and objects
@@ -71,7 +75,7 @@ function process(key, value) {
     let inner = '';
 
     for (let i in value) {
-      inner += process(i, value[i]);
+      inner += processItem(i, value[i]);
     }
 
     newValue = `<div class="group">${inner}</div>`;
