@@ -1,0 +1,13 @@
+.group,
+.value {
+  padding: 0.5rem;
+}
+
+.group {
+  border: 1px solid red;
+}
+
+.value {
+  border: 1px solid blue;
+  margin-bottom: 0.5rem;
+}

@@ -1,7 +1,9 @@
 'use strict';
 
 var format = require('util').format;
+var fs = require('fs');
 var opn = require('opn');
+var path = require('path');
 var temp = require('temp-write');
 
 const HTML = `
@@ -9,19 +11,7 @@ const HTML = `
 <html>
   <head>
     <style>
-      .group,
-      .value {
-        padding: 0.5rem;
-      }
-
-      .group {
-        border: 1px solid red;
-      }
-
-      .value {
-        border: 1px solid blue;
-        margin-bottom: 0.5rem;
-      }
+      %s
     </style>
   </head>
   <body>
@@ -36,7 +26,10 @@ const HTML = `
  * @returns {string} HTML page displaying the JSON.
  */
 module.exports = module.exports.parse = function parse(value) {
-  return format(HTML, processItem('root', value));
+  const css = fs.readFileSync(path.join(__dirname, 'assets/style.css'));
+  const output = processItem('root', value);
+
+  return format(HTML, css, output);
 }
 
 /**
